@@ -15,6 +15,7 @@ jobs:
   tests:
     name: Run tests
     runs-on: ubuntu-latest
+    # Run on any push, or on PR events except when the PR was closed
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     steps:
       - name: Checkout repo
@@ -33,14 +34,14 @@ jobs:
         run: npm run test --if-present
 
   build_preview:
-    name: Build image (preview, no push) — run only when PR is opened to main
+    name: Build image (preview, no push) — run only for PRs targeting main (opened/synchronize/reopened)
     runs-on: ubuntu-latest
     needs: tests
-    # Run only when a pull request is opened and its base branch is 'main'
+    # Run for pull_request events (not closed) whose base is main
     if: >
       github.event_name == 'pull_request' &&
-      github.event.action == 'opened' &&
-      github.event.pull_request.base.ref == 'main'
+      github.event.pull_request.base.ref == 'main' &&
+      github.event.action != 'closed'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -69,10 +70,10 @@ jobs:
             pokeparty-frontend:${{ env.SHORT_SHA }}
 
   publish:
-    name: Build & Publish to GHCR (only on merge -> main)
+    name: Build & Publish to GHCR (only on merged PR -> main)
     runs-on: ubuntu-latest
     needs: tests
-    # Only run when a PR was closed AND merged, and target branch is main
+    # Run ONLY when a pull_request was merged into main (no direct pushes to main)
     if: >
       github.event_name == 'pull_request' &&
       github.event.pull_request.merged == true &&
