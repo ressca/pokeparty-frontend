@@ -71,7 +71,7 @@ jobs:
   publish:
     name: Build & Publish to GHCR (only on merge -> main)
     runs-on: ubuntu-latest
-    needs: [tests, build_preview]
+    needs: tests
     # Only run when a PR was closed AND merged, and target branch is main
     if: >
       github.event_name == 'pull_request' &&
