@@ -73,11 +73,10 @@ jobs:
     name: Build & Publish to GHCR (only on merged PR -> main)
     runs-on: ubuntu-latest
     needs: tests
-    # Run ONLY when a pull_request was merged into main (no direct pushes to main)
+    # Run ONLY when this workflow was triggered by a push to main from a merged PR
     if: >
-      github.event_name == 'pull_request' &&
-      github.event.pull_request.merged == true &&
-      github.event.pull_request.base.ref == 'main'
+      github.event_name == 'push' &&
+      github.ref == 'refs/heads/main'
     steps:
       - name: Checkout repository (full history)
         uses: actions/checkout@v4
