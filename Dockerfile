@@ -1,5 +1,5 @@
 # Stage 1: Build
-FROM node:20-bookworm-slim AS builde
+FROM node:20-slim AS builder
 WORKDIR /app
 
 # Copy package files
@@ -13,7 +13,7 @@ COPY . .
 RUN npm run build
 
 # Stage 2: Production
-FROM nginx:bookworm-slim
+FROM nginx:1.24
 
 # Copy only built static files
 COPY --from=builder /app/dist /usr/share/nginx/html
