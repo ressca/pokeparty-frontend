@@ -4,7 +4,7 @@ body {
 .mainContainer {
     display: flex;
     width: 100%;
-    background-color: #ff0000;
+    background-color: #EEEEEE;
     justify-content: center;
 }
 .sectionsContainer {
