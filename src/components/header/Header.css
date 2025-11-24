@@ -1,0 +1,51 @@
+.headerContainer {
+    display: flex;
+    justify-content: center;
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    margin-bottom: 20px
+}
+
+header{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f8f9fa;
+    width: 75%;
+    border-radius: 20px;
+}
+
+.secondPart {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    background-color: #00000000;
+}
+h1{
+    color: red;
+    background-color: #00000000;
+}
+
+.yourCollection {
+    text-decoration: none;
+    color: #000000;
+    font-size: 16px;
+    background-color: #00000000;
+    margin-right: 20px;
+}
+
+.userAvatar {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    background-color: #D9D9D9;
+    border-radius: 50%;
+}
+.avatarImage {
+    width: 60%;
+    height: 60%;
+    background-color: #00000000;
+}
