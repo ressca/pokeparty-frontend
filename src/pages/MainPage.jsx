@@ -1,10 +1,17 @@
 import Header from '../components/header/Header.jsx'
-import RandomPokemons from '../components/randomPokemons/RandomPokemons.jsx'
+import PokemonOfTheDay from '../components/pokemonOfTheDay/PokemonOfTheDay.jsx'
+import PokemonsFights from '../components/pokemonsFights/PokemonsFights.jsx';
+import './MainPage.css';
 export default function MainPage() {
     return (
         <div>
             <Header />
-            <RandomPokemons />
+            <div className="mainContainer">
+                <div className='sectionsContainer'>
+                    <PokemonsFights />
+                    <PokemonOfTheDay />
+                </div>
+            </div>
         </div>
     )
 }
