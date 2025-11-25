@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Search from "./Search";
-import Login from "../login/login";
+import Login from "../login/Login";
 import Register from "../login/Register";
+import userAvatar from '../../assets/images/user.png';
 import './Header.css';
 
 export default function Header() {
@@ -18,7 +19,7 @@ export default function Header() {
             <a href="#" className="yourCollection">Your Collection</a>
 
             <div className="userAvatar" onClick={() => setLoginOpen(true)}> 
-              <img src="src/assets/images/user.png" alt="User Avatar" className="avatarImage"/>
+              <img src={userAvatar} alt="User Avatar" className="avatarImage"/>
             </div>
           </div>
         </header>

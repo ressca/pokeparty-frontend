@@ -1,4 +1,4 @@
-import './login.css';
+import './Register.css';
 
 export default function Register({ onClose, switchToLogin }) {
   return (
