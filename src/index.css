@@ -3,3 +3,10 @@
   font-family: 'Epilogue', sans-serif;
   background-image: url("pikachu.png");
 }
+*{
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+body {
+    background-color: #EEEEEE;
+}

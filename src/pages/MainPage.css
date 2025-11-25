@@ -1,0 +1,21 @@
+body {
+    background-color: #f5f5f5;
+    width: 100%;
+}
+.mainContainer {
+    display: flex;
+    width: 100%;
+    background-color: #EEEEEE;
+    justify-content: center;
+}
+.sectionsContainer {
+    display: flex;
+    width: 75%;
+}
+.randomPokemonsContainer {
+    margin: 20px 0 20px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

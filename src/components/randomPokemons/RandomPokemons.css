@@ -1,0 +1,15 @@
+h1{
+    color: #ff0000;
+}
+
+.positioningRandomPokemons {
+    width: 75%;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px 0 20px 0;
+    border-radius: 20px;
+}
