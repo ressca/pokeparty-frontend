@@ -1,5 +1,5 @@
 import './Pokemon.css'
-import PokemonInfo from '../../PokemonInfo/PokemonInfo';
+import PokemonInfo from '../../components/PokemonInfo/PokemonInfo';
 export default function Pokemon() {
     return (
         
