@@ -12,7 +12,7 @@ export default function Footer() {
             </div>
             <div className="footerSeparator"></div>
             <div className="footerCopyright">
-                <p className='footerCopyrtight'>© 2024 PokeParty. All rights reserved.</p>
+                <p className='footerCopyrtight'>© 2025 PokeParty. All rights reserved.</p>
             <div className="footerPolicies">
                 <a href="#" className='footerPrivacy'>Privacy</a>
                 <a href="#" className='footerPrivacy'>Terms</a>
