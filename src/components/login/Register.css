@@ -1,0 +1,102 @@
+.loginOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.loginForm {
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+  animation: slideIn 0.3s ease-out;
+}
+
+.loginForm h2 {
+  margin: 0 0 15px 0;
+  font-size: 1.6rem;
+  text-align: center;
+  color: #333;
+}
+
+.loginForm input {
+  padding: 12px 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.loginForm input:focus {
+  border-color: #2b2b2b;
+}
+
+.loginBtn {
+  padding: 8px;
+  border-radius: 8px;
+  background: #ccc;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 5px;
+  transition: background 0.2s;
+}
+
+.loginBtn:hover {
+  background: #bbb;
+}
+
+.closeBtn {
+  padding: 8px;
+  border-radius: 8px;
+  background: #ccc;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 5px;
+  transition: background 0.2s;
+}
+
+.closeBtn:hover {
+  background: #bbb;
+}
+
+.switchText {
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.linkRegForm {
+  color: #4caf50;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.linkRegForm:hover {
+  color: #45a049;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes slideIn {
+  from {transform: translateY(-90px); opacity: 0;}
+  to {transform: translateY(0); opacity: 1;}
+}
