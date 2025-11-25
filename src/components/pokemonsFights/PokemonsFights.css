@@ -1,0 +1,22 @@
+.randomPokemonsSection {
+    background-color: #f8f9fa;
+    width: 70%;
+    height: 70vh;
+    border-radius: 20px;
+    text-align: center;
+}
+.positioningPokemons {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 50px;
+}
+
+.YourChoice{
+    font-size: 44px;
+    font-weight: bold;
+    margin: 20px 0 20px 0;
+}

@@ -1,0 +1,16 @@
+.pokemonCards {
+    background-color: #dbdbdb;
+    width: 18%;
+    aspect-ratio: 3/4;
+    border-radius: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}   
+.randomPokemonCardImageContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
