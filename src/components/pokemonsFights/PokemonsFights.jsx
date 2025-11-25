@@ -1,5 +1,5 @@
 import './PokemonsFights.css';
-import PokemonsFightCards from '../pokemonsFightCards/pokemonsFightCards';
+import PokemonsFightCards from '../pokemonsFightCards/PokemonsFightCards';
 export default function PokemonsFights() {
     return (
         <section className="randomPokemonsSection">
