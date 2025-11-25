@@ -5,7 +5,7 @@
     margin: auto;
     margin-top: 20px;
 }
-img{
+.card-img{
     width: 400px;
     height: 360px;
     display: block;

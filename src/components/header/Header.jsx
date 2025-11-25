@@ -1,21 +1,49 @@
-import Search from "./Search"
+import { useState } from "react";
+import Search from "./Search";
+import Login from "../login/login";
+import Register from "../login/Register";
 import './Header.css';
+
 export default function Header() {
-    return (
-    <div className="headerContainer">
+  const [isLoginOpen, setLoginOpen] = useState(false);
+  const [isRegisterOpen, setRegisterOpen] = useState(false);
+
+  return (
+    <div>
+      <div className="headerContainer">
         <header>
-            <h1 class="logoh1">PokeParty</h1>
-                
-            <div className="secondPart">
-                <Search />
-                <a href="#" className="yourCollection">Your Collection</a>
+          <h1 className="logoh1">PokeParty</h1>
+          <div className="secondPart">
+            <Search />
+            <a href="#" className="yourCollection">Your Collection</a>
 
-                    <div className="userAvatar"> {/*na razie nie można kliknąć, potencjalnie tu będą ustawienia */}
-                        <img src="src\assets\images\user.png" alt="User Avatar" className="avatarImage"/>
-                    </div>
-
+            <div className="userAvatar" onClick={() => setLoginOpen(true)}> 
+              <img src="src/assets/images/user.png" alt="User Avatar" className="avatarImage"/>
             </div>
+          </div>
         </header>
+      </div>
+
+      {/* Popupy */}
+      {isLoginOpen && (
+        <Login
+          onClose={() => setLoginOpen(false)}
+          switchToRegister={() => {
+            setLoginOpen(false);
+            setRegisterOpen(true);
+          }}
+        />
+      )}
+
+      {isRegisterOpen && (
+        <Register
+          onClose={() => setRegisterOpen(false)}
+          switchToLogin={() => {
+            setRegisterOpen(false);
+            setLoginOpen(true);
+          }}
+        />
+      )}
     </div>
-    )
+  );
 }

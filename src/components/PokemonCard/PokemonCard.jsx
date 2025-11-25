@@ -2,7 +2,7 @@ import "./PokemonCard.css";
 export default function PokemonCard(props) {
     return (
         <div className="main-card">
-            <img src="" alt="" />
+            <img className="card-img" src="" alt="" />
 
             <div className="type">
                 <h6 className="text-card">Type</h6>
