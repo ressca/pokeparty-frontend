@@ -1,9 +1,10 @@
 import './PokemonOfTheDay.css';
+import tempPic from '../../assets/images/tempPic.png';
 export default function PokemonOfTheDay() {
     return (
                 <section className="pokemonOfTheDaySection">
                     <div className="pokemonOfTheDayContainer">
-                        <img src="src\assets\images\tempPic.png" alt="Pokemon of the Day" className='pokemonPicture'/>
+                        <img src={tempPic} alt="Pokemon of the Day" className='pokemonPicture'/>
                         <div className="pokemonOfTheDayInfo">
                             <h2 className="pokemonName">Pikachu</h2>
                             <p className="pokemonType">Type: Electric</p>
