@@ -4,7 +4,7 @@ export default function Header() {
     return (
     <div className="headerContainer">
         <header>
-            <h1>PokeParty</h1>
+            <h1 class="logoh1">PokeParty</h1>
                 
             <div className="secondPart">
                 <Search />

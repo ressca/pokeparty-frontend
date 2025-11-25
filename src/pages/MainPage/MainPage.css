@@ -1,11 +1,10 @@
 body {
-    background-color: #f5f5f5;
     width: 100%;
 }
 .mainContainer {
     display: flex;
     width: 100%;
-    background-color: #EEEEEE;
+    background-color: var(--bg-color);
     justify-content: center;
 }
 .sectionsContainer {

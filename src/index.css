@@ -1,12 +1,13 @@
+:root {
+  --bg-color: #f5f5f5;
+  --secondary-color: #f8f9fa;
+}
 :root{
   background-color: #4A4A4A;
   font-family: 'Epilogue', sans-serif;
-  background-image: url("pikachu.png");
 }
 *{
   margin: 0;
   font-family: Arial, sans-serif;
 }
-body {
-    background-color: #EEEEEE;
-}
+
