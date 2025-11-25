@@ -43,6 +43,7 @@ header{
     align-items: center; 
     background-color: #D9D9D9;
     border-radius: 50%;
+    cursor: pointer;
 }
 .avatarImage {
     width: 60%;

@@ -7,6 +7,7 @@
         box-shadow 0.25s ease,
         background-color 0.25s ease;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
 }
 .pokemonCard:hover {
   transform: translateY(-6px) scale(1.03);

@@ -27,7 +27,7 @@
 
 .loginForm h2 {
   margin: 0 0 15px 0;
-  font-size: 1.6rem;
+  font-size: 30px;
   text-align: center;
   color: #333;
 }
@@ -36,7 +36,7 @@
   padding: 12px 10px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: 15px;
   outline: none;
   transition: border-color 0.2s;
 }
@@ -51,7 +51,7 @@
   background: #ccc;
   border: none;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 15px;
   margin-top: 5px;
   transition: background 0.2s;
 }
@@ -66,7 +66,7 @@
   background: #ccc;
   border: none;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 15px;
   margin-top: 5px;
   transition: background 0.2s;
 }
@@ -76,7 +76,7 @@
 }
 
 .switchText {
-  font-size: 0.9rem;
+  font-size: 14px;
   text-align: center;
   margin-top: 5px;
 }
