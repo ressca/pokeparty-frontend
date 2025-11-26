@@ -37,7 +37,7 @@
     padding: 20px;
     font-weight: 600;
     text-transform: uppercase;
-    font-size: 0.9rem;
+    font-size: 1rem;
     letter-spacing: 1px;
 }
 
@@ -106,7 +106,6 @@
 
 .nameCell {
     font-weight: 600;
-    color: #2c3e50;
 }
 
 .load-more-button{

@@ -80,7 +80,7 @@ export default function Leaderboard() {
 
     return (
         <div className="leaderboardContainer">
-            <h1 className="leaderboardTitle">Most liked pokemons Elo</h1>
+            <h1 className="leaderboardTitle">Most liked pokemons By Elo</h1>
             <div className="leaderboardTableContainer">
                 <table className="leaderboardTable">
                     <thead>
