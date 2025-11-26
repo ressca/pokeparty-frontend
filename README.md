@@ -1,6 +1,17 @@
 # PokeParty Frontend
 
+### Project Description
+PokeParty allows users to:
+
+- Browse a list of Pokémon.  
+- Add Pokémon to their favorites.  
+- Vote for Pokémon to indicate which one they like more.  
+- See rankings based on votes.  
+
+This makes PokeParty an interactive Pokémon platform combining collection, preference voting, and rankings in a fun UI.
+
 ## Overview
+
 **PokeParty** is a full-stack Pokémon-themed application consisting of:
 
 - **Backend**: FastAPI + Uvicorn providing API endpoints.  
@@ -8,7 +19,7 @@
 
 You can find the backend repository here: [PokeParty Backend](https://github.com/ressca/pokeparty-backend)
 
-This README covers the frontend setup, running, and building instructions.
+This README covers the frontend setup and running instructions.
 
 ---
 
@@ -30,38 +41,16 @@ cd pokeparty-frontend
 ### 2. Install dependencies
 ```bash
 npm install
-# or
-yarn install
 ```
 
 ### 3. Configure environment variables (if needed)
 
 Create a .env file in the root directory. For example:
 ```env
-REACT_APP_API_URL=http://localhost:8000
+VITE_POKEPARTY_API_URL=http://localhost:8000/
 ```
-
-Note: React requires environment variables to start with REACT_APP_.
 
 ## Running the Frontend (Development)
 ```bash
 npm start
-# or
-yarn start
 ```
-
-## The app will run at:
-```markdown
-http://localhost:3000
-```
-
-Hot-reload is enabled, so the UI updates automatically when files change.
-
-## Building for Production
-```bash
-npm run build
-# or
-yarn build
-```
-
-The build output will be placed in the build/ directory, ready for deployment.
