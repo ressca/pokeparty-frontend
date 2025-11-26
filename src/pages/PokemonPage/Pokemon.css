@@ -1,4 +1,9 @@
 .abc{
  width: 100%;
- background-color: #4A4A4A;
+ background-color: #f5f5f5;
+}
+.def{
+    padding-left: 30px;
+padding-top: 30px;
+width: 129%;
 }

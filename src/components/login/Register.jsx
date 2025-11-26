@@ -5,6 +5,7 @@ export default function Register({ onClose, switchToLogin }) {
     <div className="loginOverlay">
       <div className="loginForm">
         <h2>Register</h2>
+        <input type="text" placeholder="Username" />
         <input type="text" placeholder="Email" />
         <input type="password" placeholder="Password" />
         <input type="password" placeholder="Confirm Password" />
