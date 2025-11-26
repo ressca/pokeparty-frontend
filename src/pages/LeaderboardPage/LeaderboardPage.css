@@ -1,0 +1,17 @@
+.leaderboardPageBody {
+    width: 100%;
+    min-height: 100vh;
+}
+.mainContainer {
+    display: flex;
+    width: 100%;
+    background-color: var(--bg-color);
+    justify-content: center;
+}
+.footerContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
