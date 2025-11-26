@@ -25,7 +25,7 @@ This README covers the frontend setup and running instructions.
 
 ## Requirements
 - Node.js 16+
-- npm or yarn
+- npm
 - (Optional) Backend API running
 
 ---
@@ -52,5 +52,5 @@ VITE_POKEPARTY_API_URL=http://localhost:8000/
 
 ## Running the Frontend (Development)
 ```bash
-npm start
+npm run dev
 ```
