@@ -17,7 +17,9 @@ export default function Header() {
           <h1 className="logoh1" onClick={() => navigate("/")} style={{ cursor: "pointer" }}>PokeParty</h1>
           <div className="secondPart">
             <Search />
+            <a href="#" className="yourCollection" onClick={(e) => { e.preventDefault(); navigate("/leaderboard"); }}>Leaderboard</a>
             <a href="#" className="yourCollection">Your Collection</a>
+            
 
             <div className="userAvatar" onClick={() => setLoginOpen(true)}> 
               <img src={userAvatar} alt="User Avatar" className="avatarImage"/>

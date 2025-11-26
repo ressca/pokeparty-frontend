@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 
 import Pokemon from './pages/PokemonPage/Pokemon.jsx';
 import MainPage from './pages/MainPage/MainPage.jsx';
+import LeaderboardPage from './pages/LeaderboardPage/LeaderboardPage.jsx';
 
 function App() {
     const [count, setCount] = useState(0)
@@ -11,6 +12,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<MainPage />}/>
+        <Route path="/leaderboard" element={<LeaderboardPage />} />
         <Route path="/pokemon/:name" element={<Pokemon />} />
         <Route path="/pokemon" element={<Navigate to="/" replace />} />
       </Routes>

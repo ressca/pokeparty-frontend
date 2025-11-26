@@ -1,0 +1,120 @@
+.leaderboardContainer {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.leaderboardTitle {
+    text-align: center;
+    font-size: 3rem;
+    color: #333;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.leaderboardTableContainer {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+}
+
+.leaderboardTable {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.leaderboardTable thead {
+    background-color: red;
+    color: #ffffff;
+}
+
+.leaderboardTable th {
+    padding: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.leaderboardTable tbody tr {
+    cursor: pointer;
+}
+
+.leaderboardTable td {
+    padding: 15px 20px;
+    vertical-align: middle;
+    border-bottom: 1px solid #f0f0f0;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+/* Zebra striping */
+.leaderboardTable tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.leaderboardTable tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+/* Hover effect */
+.leaderboardTable tbody tr:hover {
+    background-color: #e8f4fd;
+    transform: scale(1.005);
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    z-index: 1;
+    position: relative;
+}
+
+.leaderboardPokemonImg {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
+    transition: transform 0.3s ease;
+}
+
+.leaderboardTable tbody tr:hover .leaderboardPokemonImg {
+    transform: scale(1.2);
+}
+
+.rankCell {
+    font-weight: bold;
+    color: #7f8c8d;
+    font-size: 1.2rem;
+}
+
+/* Top 3 ranks styling */
+.leaderboardTable tbody tr:nth-child(1) .rankCell {
+    color: #f1c40f; /* Gold */
+    font-size: 1.5rem;
+}
+.leaderboardTable tbody tr:nth-child(2) .rankCell {
+    color: #95a5a6; /* Silver */
+    font-size: 1.4rem;
+}
+.leaderboardTable tbody tr:nth-child(3) .rankCell {
+    color: #cd7f32; /* Bronze */
+    font-size: 1.3rem;
+}
+
+.nameCell {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.load-more-button{
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 15px;
+}
