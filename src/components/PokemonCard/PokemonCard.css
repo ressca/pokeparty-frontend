@@ -1,9 +1,11 @@
 .main-card{
-    background-color: #690B0B;
+    background-color: #8a1717;
     width: 420px;
     height: 680px;
     margin: auto;
     margin-top: 20px;
+    border: 0px solid #888888;
+    border-radius: 10px;
 }
 .card-img{
     width: 400px;
@@ -16,27 +18,33 @@
 .type{
     width: 400px;
     height: 120px;
-    background-color:#FF4B4B ;
+    background-color:#b10505 ;
     margin:auto;
     margin-top: 10px;
+    border: 0px solid #888888;
+    border-radius: 10px;
 }
 .left-card{
     width: 160px;
     height: 120px;
-    background-color:#FF4B4B ;
+    background-color:#b10505 ;
     margin:auto;
     margin-top: 20px;
     float: left;
     margin-left:10px;
+    border: 0px solid #888888;
+    border-radius: 10px;
 }
 .right-card{
     width: 160px;
     height: 120px;
-    background-color:#FF4B4B ;
+    background-color:#b10505 ;
     margin:auto;
     margin-top: 20px;
     float: right;
     margin-right: 10px;
+    border: 0px solid #888888;
+    border-radius: 10px;
 }
 .text-card{
     color:#FFFFFF;
@@ -44,6 +52,7 @@
     text-align: center;
     margin-bottom:20px;
     padding-top: 10px;
+    
 }
 .text-card-data{
     background-color:#D9D9D9;
@@ -51,5 +60,7 @@
     font-size: 24px;
     text-align: center;
     padding-bottom: 20px;
+    border: 0px solid #888888;
+    border-radius: 10px;
     
 }
