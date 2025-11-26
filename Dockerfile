@@ -8,6 +8,10 @@ COPY package*.json ./
 # Install ALL dependencies
 RUN npm ci --silent
 
+# Add build argument and environment variable
+ARG VITE_POKEPARTY_API_URL
+ENV VITE_POKEPARTY_API_URL=$VITE_POKEPARTY_API_URL
+
 # Copy source and build
 COPY . .
 RUN npm run build

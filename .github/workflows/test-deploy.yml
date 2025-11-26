@@ -68,6 +68,8 @@ jobs:
           tags: |
             pokeparty-frontend:preview
             pokeparty-frontend:${{ env.SHORT_SHA }}
+          build-args: |
+            VITE_POKEPARTY_API_URL=http://localhost:8000
 
   publish:
     name: Build & Publish to GHCR (multi-arch)
@@ -109,6 +111,8 @@ jobs:
           tags: |
             ghcr.io/${{ github.repository_owner }}/pokeparty-frontend:latest
             ghcr.io/${{ github.repository_owner }}/pokeparty-frontend:${{ env.SHORT_SHA }}
+          build-args: |
+            VITE_POKEPARTY_API_URL=${{ secrets.VITE_POKEPARTY_API_URL }}
 
   deploy:
     name: Deploy to VPS
