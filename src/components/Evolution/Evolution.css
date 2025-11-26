@@ -1,0 +1,49 @@
+.main-evo {
+    width: 1250px;
+    height: 400px;
+    margin-left: 20px;
+
+    border: 10px solid;  
+    border-radius: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;        
+    box-sizing: border-box; 
+    background-color: #fff;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.evo-row {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 40px;
+    width: 100%;
+}
+
+.evo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.evo-item {
+    text-align: center;
+}
+
+.evo-item img {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+}
+
+.arrow svg {
+    opacity: 0.8;
+    transition: transform 0.2s ease;
+}
+
+.arrow svg:hover {
+    transform: scale(1.2);
+}
