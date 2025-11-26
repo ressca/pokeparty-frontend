@@ -1,10 +1,16 @@
 import { useState, useEffect } from "react";
 import tempPic from '../../assets/images/tempPic.png'; 
+import { useNavigate } from "react-router-dom";
 import './PokemonOfTheDay.css';
 
 export default function PokemonOfTheDay() {
   const [pokemonData, setPokemonData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const navigateRC = useNavigate();
+
+    const handleClick = () => {
+        navigateRC(`/pokemon/${pokemonData.name.toLowerCase()}`);
+    }
 
   useEffect(() => {
     const fetchPokemon = async () => {
@@ -32,15 +38,15 @@ export default function PokemonOfTheDay() {
         setLoading(false);
       }
     };
-
     fetchPokemon();
   }, []);
 
   if (loading) return <p>Ładowanie...</p>;
   if (!pokemonData) return <p>Nie udało się pobrać Pokemona dnia.</p>;
-
+  
   return (
-    <section className="pokemonOfTheDaySection">
+    <section className="pokemonOfTheDaySection" onClick={handleClick}>
+      <h1 className="potdSectionTitle">Pokémon of the Day</h1>
       <div className="pokemonOfTheDayContainer">
         <img src={pokemonData.sprite} alt={pokemonData.name} className='pokemonPicture'/>
         <div className="pokemonOfTheDayInfo">
