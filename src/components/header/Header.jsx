@@ -5,11 +5,28 @@ import Register from "../login/Register";
 import userAvatar from '../../assets/images/user.png';
 import './Header.css';
 import { useNavigate } from "react-router-dom";
+import { fetchCurrentUser } from "../login/apiUser";
+import { useEffect } from "react";
+import UserSettings from "../UserSettings/UserSettings";
 
 export default function Header() {
   const [isLoginOpen, setLoginOpen] = useState(false);
   const [isRegisterOpen, setRegisterOpen] = useState(false);
   const navigate = useNavigate();
+  const [isSettingsOpen, setSettingsOpen] = useState(false);
+  const [username, setUsername] = useState("");
+
+  useEffect(() => {
+    const token = localStorage.getItem("access_token");
+    if (token) {
+      fetchCurrentUser(token)
+        .then(data => {
+          setUsername(data.username);
+        })
+        .catch(err => console.error(err));
+    }
+  }, []);
+  
   return (
     <div>
       <div className="headerContainer">
@@ -19,9 +36,16 @@ export default function Header() {
             <Search />
             <a href="#" className="yourCollection">Your Collection</a>
 
-            <div className="userAvatar" onClick={() => setLoginOpen(true)}> 
+            <div className="userAvatar" onClick={() => {
+            const token = localStorage.getItem("access_token");
+              if(token) {
+                  setSettingsOpen(true);
+                } else {
+                  setLoginOpen(true);
+                }
+                }}>
               <img src={userAvatar} alt="User Avatar" className="avatarImage"/>
-            </div>
+          </div>
           </div>
         </header>
       </div>
@@ -45,6 +69,10 @@ export default function Header() {
             setLoginOpen(true);
           }}
         />
+      )}
+
+      {isSettingsOpen && (
+      <UserSettings onClose={() => setSettingsOpen(false)} />
       )}
     </div>
   );

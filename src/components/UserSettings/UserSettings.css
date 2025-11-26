@@ -1,0 +1,72 @@
+.settingsOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-in;
+}
+
+.settingsForm {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  padding: 30px;
+  width: 250px;
+  text-align: left; 
+
+}
+
+.settingsForm p {
+  font-size: 14px;
+  color: #333;
+  padding: 5px;
+}
+
+.settingsForm h2 {
+  margin: 0 0 15px 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.logoutSBtn, .closeSBtn {
+  width: 100%;
+  padding: 10px 0;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.logoutSBtn {
+  background-color: #ff4d4f;
+  color: white;
+}
+.logoutSBtn:hover {
+  background-color: #e04445;
+}
+
+.closeSBtn {
+  background-color: #f0f0f0;
+  color: #333;
+}
+.closeSBtn:hover {
+  background-color: #e0e0e0;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes slideDown {
+  from {transform: translateY(-15px); opacity: 0;}
+  to {transform: translateY(0); opacity: 1;}
+}
