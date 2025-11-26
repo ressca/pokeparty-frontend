@@ -15,7 +15,7 @@ export default function PokemonOfTheDay() {
   useEffect(() => {
     const fetchPokemon = async () => {
       try {
-        const res = await fetch('http://localhost:8000/pokemon-otd');
+        const res = await fetch(`${import.meta.env.VITE_POKEPARTY_API_URL}/pokemon-otd`);
         if (!res.ok) throw new Error('Błąd przy pobieraniu Pokémona dnia');
         const data = await res.json();
         const pokemonId = data.pokemon_of_the_day.pokemon_id;
