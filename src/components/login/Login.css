@@ -100,3 +100,10 @@
   from {transform: translateY(-90px); opacity: 0;}
   to {transform: translateY(0); opacity: 1;}
 }
+/* Wyłączenie skalowania na loginie */
+body.login-page {
+    transform: none !important;
+    width: 90% !important;
+    transform-origin: initial !important;
+    transform: scale(0.8);
+}

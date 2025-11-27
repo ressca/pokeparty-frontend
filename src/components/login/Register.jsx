@@ -1,11 +1,19 @@
+import { useState, useEffect } from "react";
 import './Register.css';
 import { registerUser } from './apiLoginRejestracja.js';
-import { useState } from "react";
+
 export default function Register({ onClose, switchToLogin }) {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [pass2, setPass2] = useState("");
+
+  useEffect(() => {
+    document.body.classList.add("register-page");
+    return () => {
+      document.body.classList.remove("register-page");
+    };
+  }, []);
 
   const handleRegister = async () => {
     if (password !== pass2) {

@@ -7,3 +7,10 @@
     padding-top: 30px;
     width: 129%;
 }
+@media (max-width: 768px) {
+    body.pokemon-page {
+        transform: scale(0.20);
+        transform-origin: top left;
+        width: 400%;
+    }
+}
