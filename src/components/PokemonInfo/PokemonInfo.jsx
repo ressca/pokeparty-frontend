@@ -13,7 +13,7 @@ export default function PokemonInfo(props) {
     if (!token) return;
 
     try {
-      const res = await fetch("http://localhost:8000/api/users/favorite-pokemons", {
+      const res = await fetch(`${import.meta.env.VITE_POKEPARTY_API_URL}/users/favorite-pokemons`, {
         headers: {
           Authorization: `Bearer ${token}`,
           Accept: "application/json",
@@ -44,7 +44,7 @@ export default function PokemonInfo(props) {
       if (!isFavorite) {
         // ➕ DODAJ
         const res = await fetch(
-          "http://localhost:8000/api/users/favorite-pokemon",
+          `${import.meta.env.VITE_POKEPARTY_API_URL}/users/favorite-pokemon`,
           {
             method: "POST",
             headers: {
@@ -62,9 +62,9 @@ export default function PokemonInfo(props) {
           console.error("Add favorite failed:", text);
         }
       } else {
-        // ❌ USUŃ — pozostawiamy ID w body
+        // ❌ USUŃ
         const res = await fetch(
-          "http://localhost:8000/api/users/favorite-pokemon/",
+          `${import.meta.env.VITE_POKEPARTY_API_URL}/users/favorite-pokemon/`,
           {
             method: "DELETE",
             headers: {
@@ -118,6 +118,26 @@ export default function PokemonInfo(props) {
 
           <p>{props.name}'s type is {props.types.join(", ")}.</p>
           <p>Its Pokédex ID is {props.id}.</p>
+
+          {/* Evolution text logic */}
+          {props.evolutionDetails.length > 0 && (
+            <p>
+              {props.evolution[0]} evolves into {props.evolution[1]}
+              {props.evolutionDetails[0]?.level &&
+                ` at level ${props.evolutionDetails[0].level}`
+              }
+
+              {props.evolution[2] && (
+                <>
+                  {`, then evolves into ${props.evolution[2]}`}
+                  {props.evolutionDetails[1]?.level &&
+                    ` at level ${props.evolutionDetails[1].level}`
+                  }
+                </>
+              )}
+              .
+            </p>
+          )}
 
           <div className="evolution">
             <h3>Evolution</h3>
