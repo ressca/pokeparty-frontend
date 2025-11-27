@@ -3,11 +3,13 @@ import Evolution from "../Evolution/Evolution";
 import PokemonCard from "../PokemonCard/PokemonCard";
 import { typeColors } from "../../utils";
 import { useAuth } from "../../context/AuthContext.jsx";
+import { useToast } from "../../context/ToastContext.jsx";
 import "./PokemonInfo.css";
 
 export default function PokemonInfo(props) {
   const [isFavorite, setIsFavorite] = useState(false);
   const { token } = useAuth();
+  const { showToast } = useToast();
 
   // 🔵 Pobieranie ulubionych
   const fetchFavorites = async () => {
@@ -37,7 +39,7 @@ export default function PokemonInfo(props) {
   // ⭐ Dodawanie / usuwanie ulubionych
   const toggleFavorite = async () => {
     if (!token) {
-      alert("Musisz być zalogowany!");
+      showToast("You must be logged in to favorite a Pokémon!", "error");
       return;
     }
 

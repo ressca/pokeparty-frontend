@@ -2,21 +2,24 @@ import './Login.css';
 import { loginUser } from './apiLoginRejestracja.js';
 import { useState } from "react";
 import { useAuth } from '../../context/AuthContext';
+import { useToast } from '../../context/ToastContext';
 
 export default function Login({ onClose, switchToRegister }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { login } = useAuth();
+  const { showToast } = useToast();
 
   const handleLogin = async () => {
     try {
       const data = await loginUser(username, password);
 
       login(data.access_token);
+      showToast("Logged in successfully!", "success");
 
       onClose(); 
     } catch (err) {
-      alert("Login failed");
+      showToast("Login failed", "error");
     }
   };
 
