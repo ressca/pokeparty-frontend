@@ -15,7 +15,7 @@ export default function Header() {
   const navigate = useNavigate();
   const [isSettingsOpen, setSettingsOpen] = useState(false);
   const [userPokemonAvatar, setUserPokemonAvatar] = useState("");
-
+  const [avatarLoa, setAvatarLoa] = useState("");
   useEffect(() => {
     const token = localStorage.getItem("access_token");
     if (token) {
@@ -25,7 +25,7 @@ export default function Header() {
         })
         .catch(err => console.error(err));
     }
-  }, [isSettingsOpen]);
+  }, [isSettingsOpen, isLoginOpen]);
   
   return (
     <div>
@@ -60,6 +60,7 @@ export default function Header() {
             setLoginOpen(false);
             setRegisterOpen(true);
           }}
+          avatarLd={() => setAvatarLoa(true)}
         />
       )}
 
