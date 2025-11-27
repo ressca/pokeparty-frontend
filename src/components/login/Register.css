@@ -100,3 +100,9 @@
   from {transform: translateY(-90px); opacity: 0;}
   to {transform: translateY(0); opacity: 1;}
 }
+/* Wyłączenie skalowania na rejestracji */
+body.register-page {
+    transform: none !important;
+    width: 100% !important;
+    transform-origin: initial !important;
+}

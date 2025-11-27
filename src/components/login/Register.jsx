@@ -1,6 +1,6 @@
+import { useState, useEffect } from "react";
 import './Register.css';
 import { registerUser } from './apiLoginRejestracja.js';
-import { useState } from "react";
 import { useToast } from '../../context/ToastContext.jsx';
 
 export default function Register({ onClose, switchToLogin }) {
@@ -9,6 +9,13 @@ export default function Register({ onClose, switchToLogin }) {
   const [password, setPassword] = useState("");
   const [pass2, setPass2] = useState("");
   const { showToast } = useToast();
+
+  useEffect(() => {
+    document.body.classList.add("register-page");
+    return () => {
+      document.body.classList.remove("register-page");
+    };
+  }, []);
 
   const handleRegister = async () => {
     if (password !== pass2) {

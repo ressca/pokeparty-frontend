@@ -11,6 +11,7 @@ import UserSettings from "../UserSettings/UserSettings";
 import FavoritesPage from "../../pages/FavoritesPage/FavoritesPage";
 import { useAuth } from "../../context/AuthContext";
 
+import PokemonAvatar from "../UserSettings/PokemonAvatar";
 export default function Header() {
   const [isLoginOpen, setLoginOpen] = useState(false);
   const [isRegisterOpen, setRegisterOpen] = useState(false);
@@ -19,17 +20,19 @@ export default function Header() {
   const [username, setUsername] = useState("");
   const { token } = useAuth();
 
+  const [userPokemonAvatar, setUserPokemonAvatar] = useState("");
+  const [avatarLoa, setAvatarLoa] = useState("");
   useEffect(() => {
     if (token) {
       fetchCurrentUser(token)
         .then(data => {
-          setUsername(data.username);
+          setUserPokemonAvatar(data.profile_pic_pokemon_id);
         })
         .catch(err => console.error(err));
     } else {
       setUsername("");
     }
-  }, [token]);
+  }, [isSettingsOpen, isLoginOpen, token]);
   
   return (
     <div>
@@ -49,13 +52,13 @@ export default function Header() {
                   setLoginOpen(true);
                 }
                 }}>
-              <img src={userAvatar} alt="User Avatar" className="avatarImage"/>
+              {userPokemonAvatar ? (
+              <PokemonAvatar id={userPokemonAvatar} size={30} showName={false}/>) : (<img src={userAvatar} alt="User Avatar" className="avatarImage"/>)}
           </div>
           </div>
         </header>
       </div>
 
-      {/* Popupy */}
       {isLoginOpen && (
         <Login
           onClose={() => setLoginOpen(false)}
@@ -63,6 +66,7 @@ export default function Header() {
             setLoginOpen(false);
             setRegisterOpen(true);
           }}
+          avatarLd={() => setAvatarLoa(true)}
         />
       )}
 
