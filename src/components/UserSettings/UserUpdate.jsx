@@ -19,7 +19,7 @@ export default function UserUpdate({ userData, onClose, onUpdated }) {
     });
   };
 
-  const handleSubmit = async (e) => {
+const handleSubmit = async (e) => {
   e.preventDefault();
   try {
     const token = localStorage.getItem("access_token");
@@ -28,17 +28,18 @@ export default function UserUpdate({ userData, onClose, onUpdated }) {
     if (!dataToSend.password) delete dataToSend.password;
 
     const updated = await updateUser(token, dataToSend);
-    console.log("Użytkownik zaktualizowany:", updated);
-    const data = await loginUser(formData.username, formData.password);
-    localStorage.setItem("access_token", data.access_token);
+    if (updated.access_token) {
+      localStorage.setItem("access_token", updated.access_token);
+    }
+
     onUpdated();
     onClose();
-
   } catch (err) {
     console.error(err);
     alert("Nie udało się zaktualizować danych.");
   }
 };
+
 
 
   return (

@@ -1,7 +1,4 @@
 export async function fetchCurrentUser(token) {
-  console.log("API URL:", import.meta.env.VITE_POKEPARTY_API_URL);
-  console.log("TOKEN:", token);
-
   const res = await fetch(
     `${import.meta.env.VITE_POKEPARTY_API_URL}/users/current-user`,
     {
