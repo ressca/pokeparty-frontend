@@ -2,11 +2,12 @@ import { useState, useEffect } from "react";
 import Evolution from "../Evolution/Evolution";
 import PokemonCard from "../PokemonCard/PokemonCard";
 import { typeColors } from "../../utils";
+import { useAuth } from "../../context/AuthContext.jsx";
 import "./PokemonInfo.css";
 
 export default function PokemonInfo(props) {
   const [isFavorite, setIsFavorite] = useState(false);
-  const token = localStorage.getItem("access_token");
+  const { token } = useAuth();
 
   // 🔵 Pobieranie ulubionych
   const fetchFavorites = async () => {
