@@ -1,5 +1,5 @@
 export async function updateUser(token, updatedData) {
-  const response = await fetch("http://localhost:8000/users/update", {
+  const response = await fetch(`${import.meta.env.VITE_POKEPARTY_API_URL}/users/update`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",

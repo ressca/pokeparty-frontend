@@ -45,7 +45,7 @@ const handleSubmit = async (e) => {
   return (
     <div className="settingsOverlay">
       <div className="settingsForm">
-        <h2>Aktualizuj użytkownika</h2>
+        <h2>Update user</h2>
 
         <form onSubmit={handleSubmit} className="userUpdateForm">
 
@@ -72,7 +72,7 @@ const handleSubmit = async (e) => {
           </div>
 
           <div className="formGroup">
-            <label htmlFor="password">Nowe hasło:</label>
+            <label htmlFor="password">New password:</label>
             <input
               id="password"
               className="formInput"
@@ -84,7 +84,7 @@ const handleSubmit = async (e) => {
           </div>
 
           <div className="formGroup">
-            <label htmlFor="profile_pic_pokemon_id">ID Pokemona (avatar):</label>
+            <label htmlFor="profile_pic_pokemon_id">Pokemon ID (avatar):</label>
             <input
               id="profile_pic_pokemon_id"
               className="formInput"
@@ -96,8 +96,8 @@ const handleSubmit = async (e) => {
           </div>
           <PokemonAvatar id={formData.profile_pic_pokemon_id} size={80} showName={true}/>
           <div className="formButtons">
-            <button type="submit" className="saveBtn">Zapisz</button>
-            <button type="button" onClick={onClose} className="cancelBtn">Anuluj</button>
+            <button type="submit" className="saveBtn">Save</button>
+            <button type="button" onClick={onClose} className="cancelBtn">Cancel</button>
           </div>
 
         </form>
