@@ -1,9 +1,18 @@
+import { useEffect, useState } from "react";
 import './Login.css';
 import { loginUser } from './apiLoginRejestracja.js';
 import { useState } from "react";
 export default function Login({ onClose, switchToRegister, avatarLd }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  useEffect(() => {
+    document.body.classList.add("login-page");
+
+    return () => {
+      document.body.classList.remove("login-page");
+    };
+  }, []);
 
   const handleLogin = async () => {
     try {

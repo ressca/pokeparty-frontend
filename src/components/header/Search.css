@@ -22,3 +22,46 @@ body {
     font-size: 16px;
     background-color: transparent;
 }
+.suggestions {
+    position: absolute;
+    background: white;
+    border: 1px solid #d0d0d0;
+    list-style: none;
+    padding: 6px 0;
+    margin-top: 6px;
+    width: 280px;
+    border-radius: 12px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    animation: fadeIn 0.15s ease-out;
+}
+
+/* animacja subtelnego wjechania listy */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.suggestion-item {
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    transition: background 0.12s, padding-left 0.12s;
+    border-radius: 6px;
+    margin: 0 6px;
+}
+
+.suggestion-item:hover {
+    background-color: #f0f0f0;
+    padding-left: 18px; /* delikatne przesunięcie w prawo */
+}
+

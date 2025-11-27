@@ -6,6 +6,14 @@ import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
 
 export default function Pokemon() {
+    useEffect(() => {
+    document.body.classList.add("pokemon-page");
+
+    return () => {
+        document.body.classList.remove("pokemon-page");
+    };
+}, []);
+
 
     const { name } = useParams(); 
     const navigate = useNavigate();
