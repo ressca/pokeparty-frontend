@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import './Login.css';
 import { loginUser } from './apiLoginRejestracja.js';
-import { useState } from "react";
+
 export default function Login({ onClose, switchToRegister, avatarLd }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
