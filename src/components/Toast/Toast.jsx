@@ -5,7 +5,7 @@ export default function Toast({ message, type, onClose }) {
     useEffect(() => {
         const timer = setTimeout(() => {
             onClose();
-        }, 4500); // Auto close after 4.5 seconds
+        }, 4000); // Auto close after 4.5 seconds
 
         return () => clearTimeout(timer);
     }, [onClose]);
