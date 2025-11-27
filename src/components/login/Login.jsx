@@ -1,10 +1,16 @@
 import { useEffect, useState } from "react";
 import './Login.css';
 import { loginUser } from './apiLoginRejestracja.js';
+import { useAuth } from '../../context/AuthContext';
+import { useToast } from '../../context/ToastContext';
+
+
 
 export default function Login({ onClose, switchToRegister, avatarLd }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const { login } = useAuth();
+  const { showToast } = useToast();
 
   useEffect(() => {
     document.body.classList.add("login-page");
@@ -18,11 +24,14 @@ export default function Login({ onClose, switchToRegister, avatarLd }) {
     try {
       const data = await loginUser(username, password);
 
+      login(data.access_token);
+      showToast("Logged in successfully!", "success");
+
       localStorage.setItem("access_token", data.access_token);
       avatarLd();
       onClose(); 
     } catch (err) {
-      alert("Login failed");
+      showToast("Login failed", "error");
     }
   };
 

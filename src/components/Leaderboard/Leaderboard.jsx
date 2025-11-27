@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import './Leaderboard.css';
 import loadingSVG from '../../assets/animations/loading.svg';
 
-export default function Leaderboard() {
+export default function Leaderboard({ title, tableColumns, startRankingData, isLeaderboardPage }) {
     const [allRankings, setAllRankings] = useState([]);
     const [displayedData, setDisplayedData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -14,14 +14,13 @@ export default function Leaderboard() {
     useEffect(() => {
         const fetchLeaderboard = async () => {
             try {
-                const res = await fetch(`${import.meta.env.VITE_POKEPARTY_API_URL}/popularity/`);
-                const rankingData = await res.json();
+                if (!startRankingData || startRankingData.length === 0) return;
+
+                setAllRankings(startRankingData);
+                setDisplayedData([]);
+                setLoading(true);
                 
-                rankingData.sort((a, b) => b.elo - a.elo);
-                
-                setAllRankings(rankingData);
-                
-                await loadBatch(rankingData, 0);
+                await loadBatch(startRankingData, 0);
                 
             } catch (error) {
                 console.error('Error fetching leaderboard data:', error);
@@ -31,7 +30,7 @@ export default function Leaderboard() {
         };
 
         fetchLeaderboard();
-    }, []);
+    }, [startRankingData]);
 
     const loadBatch = async (allData, startIndex) => {
         const batch = allData.slice(startIndex, startIndex + BATCH_SIZE);
@@ -58,7 +57,11 @@ export default function Leaderboard() {
             })
         );
 
-        setDisplayedData(prev => [...prev, ...enrichedBatch]);
+        if (startIndex === 0) {
+            setDisplayedData(enrichedBatch);
+        } else {
+            setDisplayedData(prev => [...prev, ...enrichedBatch]);
+        }
         setLoadingMore(false);
     };
 
@@ -80,23 +83,24 @@ export default function Leaderboard() {
 
     return (
         <div className="leaderboardContainer">
-            <h1 className="leaderboardTitle">Most liked pokemons By Elo</h1>
+            <h1 className="leaderboardTitle">{title}</h1>
             <div className="leaderboardTableContainer">
                 <table className="leaderboardTable">
                     <thead>
                         <tr>
-                            <th>Rank</th>
-                            <th>ID</th>
-                            <th>Pokemon</th>
-                            <th>Name</th>
-                            <th>Types</th>
-                            <th>ELO</th>
+                            {tableColumns.map((col, index) => (
+                                <th key={index}>
+                                    {col}
+                                </th>
+                            ))}
                         </tr>
                     </thead>
                     <tbody>
+                        
+
                         {displayedData.map((pokemon, index) => (
                             <tr key={pokemon.id || index} onClick={() => handleRowClick(pokemon)}>
-                                <td className="rankCell">#{index + 1}</td>
+                                {isLeaderboardPage && <td className="rankCell">#{index + 1}</td>}
                                 <td className="idCell">{pokemon.pokemon_id}</td>
                                 <td className="imageCell">
                                     {pokemon.sprite && (
@@ -109,7 +113,7 @@ export default function Leaderboard() {
                                 </td>
                                 <td className="nameCell">{pokemon.name}</td>
                                 <td className="typesCell">{pokemon.types.join(', ')}</td>
-                                <td className="eloCell">{pokemon.elo}</td>
+                                {isLeaderboardPage && <td className="eloCell">{pokemon.elo}</td>}
                             </tr>
                         ))}
                     </tbody>

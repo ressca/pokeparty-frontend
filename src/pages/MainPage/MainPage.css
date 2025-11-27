@@ -1,12 +1,15 @@
 .mainPageBody {
     width: 100%;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 .mainContainer {
     display: flex;
     width: 100%;
     background-color: var(--bg-color);
     justify-content: center;
+    flex: 1;
 }
 .sectionsContainer {
     display: flex;

@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Pokemon from './pages/PokemonPage/Pokemon.jsx';
 import MainPage from './pages/MainPage/MainPage.jsx';
 import LeaderboardPage from './pages/LeaderboardPage/LeaderboardPage.jsx';
+import FavoritesPage from './pages/FavoritesPage/FavoritesPage.jsx';
 
 function App() {
     const [count, setCount] = useState(0)
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />}/>
         <Route path="/leaderboard" element={<LeaderboardPage />} />
+        <Route path='/favorites' element={<FavoritesPage />} />
         <Route path="/pokemon/:name" element={<Pokemon />} />
         <Route path="/pokemon" element={<Navigate to="/" replace />} />
       </Routes>
