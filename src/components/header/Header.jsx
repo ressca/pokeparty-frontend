@@ -8,24 +8,24 @@ import { useNavigate } from "react-router-dom";
 import { fetchCurrentUser } from "../login/apiUser";
 import { useEffect } from "react";
 import UserSettings from "../UserSettings/UserSettings";
-
+import PokemonAvatar from "../UserSettings/PokemonAvatar";
 export default function Header() {
   const [isLoginOpen, setLoginOpen] = useState(false);
   const [isRegisterOpen, setRegisterOpen] = useState(false);
   const navigate = useNavigate();
   const [isSettingsOpen, setSettingsOpen] = useState(false);
-  const [username, setUsername] = useState("");
+  const [userPokemonAvatar, setUserPokemonAvatar] = useState("");
 
   useEffect(() => {
     const token = localStorage.getItem("access_token");
     if (token) {
       fetchCurrentUser(token)
         .then(data => {
-          setUsername(data.username);
+          setUserPokemonAvatar(data.profile_pic_pokemon_id);
         })
         .catch(err => console.error(err));
     }
-  }, []);
+  }, [isSettingsOpen]);
   
   return (
     <div>
@@ -46,13 +46,13 @@ export default function Header() {
                   setLoginOpen(true);
                 }
                 }}>
-              <img src={userAvatar} alt="User Avatar" className="avatarImage"/>
+              {userPokemonAvatar ? (
+              <PokemonAvatar id={userPokemonAvatar} size={30} showName={false}/>) : (<img src={userAvatar} alt="User Avatar" className="avatarImage"/>)}
           </div>
           </div>
         </header>
       </div>
 
-      {/* Popupy */}
       {isLoginOpen && (
         <Login
           onClose={() => setLoginOpen(false)}

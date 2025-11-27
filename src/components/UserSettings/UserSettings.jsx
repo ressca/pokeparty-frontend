@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchCurrentUser } from "../login/apiUser";
+import PokemonAvatar from "./PokemonAvatar";
 import UserUpdate from "./UserUpdate";
 import './UserSettings.css';
 
@@ -34,8 +35,8 @@ export default function UserSettings({ onClose }) {
 
         <p><strong>Username:</strong> {userData.username}</p>
         <p><strong>Email:</strong> {userData.email}</p>
-        <p><strong>Zdjęcie profilowe:</strong> {userData.profile_pic_pokemon_id}</p>
-        
+        <p><strong>ID zdjęcia profilowego:</strong> {userData.profile_pic_pokemon_id}</p>
+        <PokemonAvatar id={userData.profile_pic_pokemon_id} size={120} showName={true}/>
         <button className="closeSBtn" onClick={onClose}>Close</button>
         <button className="editSBtn" onClick={() => setEditing(true)}>Edit</button>
         <button className="logoutSBtn" onClick={handleLogout}>Logout</button>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { updateUser } from "./updateUser";
 import { loginUser } from "../login/apiLoginRejestracja.js";
+import PokemonAvatar from "./PokemonAvatar";
 import './UserSettings.css';
 
 export default function UserUpdate({ userData, onClose, onUpdated }) {
@@ -92,7 +93,7 @@ export default function UserUpdate({ userData, onClose, onUpdated }) {
               onChange={handleChange}
             />
           </div>
-
+          <PokemonAvatar id={formData.profile_pic_pokemon_id} size={80} showName={true}/>
           <div className="formButtons">
             <button type="submit" className="saveBtn">Zapisz</button>
             <button type="button" onClick={onClose} className="cancelBtn">Anuluj</button>
