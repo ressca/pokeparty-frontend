@@ -27,14 +27,22 @@
   color: #333;
   padding: 5px;
 }
-
+.updateInput {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
 .settingsForm h2 {
   margin: 0 0 15px 0;
   font-size: 20px;
   color: #333;
 }
 
-.logoutSBtn, .closeSBtn {
+.editSBtn, .logoutSBtn, .closeSBtn {
   width: 100%;
   padding: 10px 0;
   margin-top: 10px;
@@ -42,13 +50,22 @@
   border-radius: 8px;
   cursor: pointer;
   font-size: 14px;
-  transition: all 0.2s ease;
+}
+
+.editSBtn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.editSBtn:hover {
+  background-color: #45a049;
 }
 
 .logoutSBtn {
   background-color: #ff4d4f;
   color: white;
 }
+
 .logoutSBtn:hover {
   background-color: #e04445;
 }
@@ -57,8 +74,67 @@
   background-color: #f0f0f0;
   color: #333;
 }
+
 .closeSBtn:hover {
   background-color: #e0e0e0;
+}
+
+.userUpdateForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.formInput {
+  padding: 8px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.formButtons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.saveBtn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.saveBtn:hover {
+  background-color: #45a049;
+}
+
+.cancelBtn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cancelBtn:hover {
+  background-color: #d32f2f;
 }
 
 @keyframes fadeIn {

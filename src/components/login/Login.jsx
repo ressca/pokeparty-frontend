@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import './Login.css';
 import { loginUser } from './apiLoginRejestracja.js';
 
-export default function Login({ onClose, switchToRegister }) {
+export default function Login({ onClose, switchToRegister, avatarLd }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -19,7 +19,7 @@ export default function Login({ onClose, switchToRegister }) {
       const data = await loginUser(username, password);
 
       localStorage.setItem("access_token", data.access_token);
-
+      avatarLd();
       onClose(); 
     } catch (err) {
       alert("Login failed");
