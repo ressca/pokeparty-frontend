@@ -27,8 +27,7 @@ export default function Login({ onClose, switchToRegister, avatarLd }) {
       login(data.access_token);
       showToast("Logged in successfully!", "success");
 
-      localStorage.setItem("access_token", data.access_token);
-      avatarLd();
+      if (avatarLd) avatarLd();
       onClose(); 
     } catch (err) {
       showToast("Login failed", "error");

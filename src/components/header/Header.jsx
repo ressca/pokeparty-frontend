@@ -31,6 +31,7 @@ export default function Header() {
         .catch(err => console.error(err));
     } else {
       setUsername("");
+      setUserPokemonAvatar(null);
     }
   }, [isSettingsOpen, isLoginOpen, token]);
   

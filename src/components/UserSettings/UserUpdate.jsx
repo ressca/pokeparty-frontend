@@ -4,6 +4,7 @@ import { loginUser } from "../login/apiLoginRejestracja.js";
 import PokemonAvatar from "./PokemonAvatar";
 import './UserSettings.css';
 import { useToast } from "../../context/ToastContext.jsx";
+import { useAuth } from "../../context/AuthContext";
 
 export default function UserUpdate({ userData, onClose, onUpdated }) {
   const [formData, setFormData] = useState({
@@ -13,6 +14,7 @@ export default function UserUpdate({ userData, onClose, onUpdated }) {
     profile_pic_pokemon_id: userData.profile_pic_pokemon_id,
   });
   const { showToast } = useToast();
+  const { token, login } = useAuth();
 
   const handleChange = (e) => {
     setFormData({
@@ -24,8 +26,6 @@ export default function UserUpdate({ userData, onClose, onUpdated }) {
 const handleSubmit = async (e) => {
   e.preventDefault();
   try {
-    const token = localStorage.getItem("access_token");
-
     const dataToSend = {};
 
     // Only add fields that have values and are different from original data (optional logic)
@@ -49,7 +49,7 @@ const handleSubmit = async (e) => {
 
     const updated = await updateUser(token, dataToSend);
     if (updated.access_token) {
-      localStorage.setItem("access_token", updated.access_token);
+      login(updated.access_token);
     }
 
     showToast("User updated successfully!", "success");
