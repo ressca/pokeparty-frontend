@@ -1,15 +1,18 @@
 import './Login.css';
 import { loginUser } from './apiLoginRejestracja.js';
 import { useState } from "react";
+import { useAuth } from '../../context/AuthContext';
+
 export default function Login({ onClose, switchToRegister }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const { login } = useAuth();
 
   const handleLogin = async () => {
     try {
       const data = await loginUser(username, password);
 
-      localStorage.setItem("access_token", data.access_token);
+      login(data.access_token);
 
       onClose(); 
     } catch (err) {

@@ -13,7 +13,7 @@ export default function PokemonInfo(props) {
     if (!token) return;
 
     try {
-      const res = await fetch("http://localhost:8000/api/users/favorite-pokemons", {
+      const res = await fetch(`${import.meta.env.VITE_POKEPARTY_API_URL}/users/favorite-pokemons`, {
         headers: {
           Authorization: `Bearer ${token}`,
           Accept: "application/json",
@@ -44,7 +44,7 @@ export default function PokemonInfo(props) {
       if (!isFavorite) {
         // ➕ DODAJ
         const res = await fetch(
-          "http://localhost:8000/api/users/favorite-pokemon",
+          `${import.meta.env.VITE_POKEPARTY_API_URL}/users/favorite-pokemon`,
           {
             method: "POST",
             headers: {
@@ -64,7 +64,7 @@ export default function PokemonInfo(props) {
       } else {
         // ❌ USUŃ — pozostawiamy ID w body
         const res = await fetch(
-          "http://localhost:8000/api/users/favorite-pokemon/",
+          `${import.meta.env.VITE_POKEPARTY_API_URL}/users/favorite-pokemon/`,
           {
             method: "DELETE",
             headers: {

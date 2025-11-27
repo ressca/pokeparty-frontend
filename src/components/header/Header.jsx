@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 import { fetchCurrentUser } from "../login/apiUser";
 import { useEffect } from "react";
 import UserSettings from "../UserSettings/UserSettings";
+import FavoritesPage from "../../pages/FavoritesPage/FavoritesPage";
+import { useAuth } from "../../context/AuthContext";
 
 export default function Header() {
   const [isLoginOpen, setLoginOpen] = useState(false);
@@ -15,17 +17,19 @@ export default function Header() {
   const navigate = useNavigate();
   const [isSettingsOpen, setSettingsOpen] = useState(false);
   const [username, setUsername] = useState("");
+  const { token } = useAuth();
 
   useEffect(() => {
-    const token = localStorage.getItem("access_token");
     if (token) {
       fetchCurrentUser(token)
         .then(data => {
           setUsername(data.username);
         })
         .catch(err => console.error(err));
+    } else {
+      setUsername("");
     }
-  }, []);
+  }, [token]);
   
   return (
     <div>
@@ -35,11 +39,10 @@ export default function Header() {
           <div className="secondPart">
             <Search />
             <a href="#" className="yourCollection" onClick={(e) => { e.preventDefault(); navigate("/leaderboard"); }}>Leaderboard</a>
-            <a href="#" className="yourCollection">Your Collection</a>
+            <a href="#" className="yourCollection" onClick={(e) => { e.preventDefault(); navigate("/favorites"); }}>Favorites</a>
             
 
             <div className="userAvatar" onClick={() => {
-            const token = localStorage.getItem("access_token");
               if(token) {
                   setSettingsOpen(true);
                 } else {

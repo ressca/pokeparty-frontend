@@ -1,4 +1,4 @@
-.leaderboardPageBody {
+.favoritesPageBody {
     width: 100%;
     min-height: 100vh;
     display: flex;
@@ -17,4 +17,16 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
+}
+
+.loginWarning {
+    width: fit-content;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    font-size: 1.8rem;
+    color: red;
+    padding: 4rem 6rem;
+    border-radius: 20px;
+    background-color: var(--secondary-color);
 }
