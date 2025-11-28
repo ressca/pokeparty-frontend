@@ -1,7 +1,9 @@
 .main-evo {
-    width: 1250px;
-    height: 400px;
-    margin-left: 20px;
+    width: 100%;
+    max-width: 1250px;
+    min-height: 400px;
+    height: auto;
+    margin: 20px auto;
 
     border: 10px solid;  
     border-radius: 20px;
@@ -20,13 +22,15 @@
     align-items: center;
     justify-content: center; 
     gap: 40px;
-    width: 100%;
+    flex-wrap: nowrap;
 }
 
 .evo-wrapper {
     display: flex;
     align-items: center;
     gap: 20px;
+    flex-wrap: nowrap;
+    justify-content: center;
 }
 
 .evo-item {
@@ -34,8 +38,10 @@
 }
 
 .evo-item img {
-    width: 300px;
-    height: 300px;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    aspect-ratio: 1/1;
     object-fit: contain;
 }
 
@@ -46,4 +52,49 @@
 
 .arrow svg:hover {
     transform: scale(1.2);
+}
+
+@media (max-width: 900px) {
+    .main-evo {
+        margin-left: 0;
+        border-width: 5px;
+        padding: 10px;
+        min-height: auto;
+    }
+
+    .evo-row {
+        gap: 20px;
+        flex-direction: column;
+        margin: 20px;
+    }
+
+    .evo-wrapper {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .evo-item img {
+        max-width: 150px;
+    }
+
+    .arrow {
+        transform: rotate(90deg);
+    }
+}
+
+@media (max-width: 600px) {
+    .main-evo {
+        min-height: auto;
+        padding: 5px;
+        border-width: 5px;
+        width: 90%;
+        margin: 10px auto;
+    }
+    .evo-item img {
+        max-width: 100px;
+    }
+    .arrow svg {
+        width: 30px;
+        height: 30px;
+    }
 }

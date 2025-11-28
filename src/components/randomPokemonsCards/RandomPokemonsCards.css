@@ -12,6 +12,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s, box-shadow 0.2s;
     cursor: pointer;
+    box-sizing: border-box;
 }
 
 .pokemonCards:hover {
@@ -51,4 +52,11 @@
     display: inline-block;
     padding: 4px 8px;
     border-radius: 8px;
+}
+
+@media (max-width: 900px) {
+    .pokemonCards {
+        width: 45%;
+        margin: 5px;
+    }
 }

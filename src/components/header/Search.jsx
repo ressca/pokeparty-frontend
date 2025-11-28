@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./Search.css";
 import searchSymbol from "../../assets/images/searchSymbol.png";
 
-export default function Search() {
+export default function Search({ onSearch }) {
   const [query, setQuery] = useState("");
   const [pokemonList, setPokemonList] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -27,6 +27,7 @@ export default function Search() {
   const handleSelect = (name) => {
     navigate(`/pokemon/${name}`);
     setQuery("");
+    if (onSearch) onSearch();
   };
 
   return (

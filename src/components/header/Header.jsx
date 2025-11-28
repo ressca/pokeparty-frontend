@@ -43,7 +43,7 @@ export default function Header() {
           <h1 className="logoh1" onClick={() => navigate("/")} style={{ cursor: "pointer" }}>PokeParty</h1>
           
           <div className={`navLinks ${isMenuOpen ? 'open' : ''}`}>
-            <Search />
+            <Search onSearch={() => setMenuOpen(false)} />
             <a href="#" className="yourCollection" onClick={(e) => { e.preventDefault(); navigate("/leaderboard"); setMenuOpen(false); }}>Leaderboard</a>
             <a href="#" className="yourCollection" onClick={(e) => { e.preventDefault(); navigate("/favorites"); setMenuOpen(false); }}>Favorites</a>
           </div>
