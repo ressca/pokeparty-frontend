@@ -1,66 +1,93 @@
 .main-card{
     background-color: #8a1717;
-    width: 420px;
-    height: 680px;
-    margin: auto;
-    margin-top: 20px;
+    width: 90%;
+    max-width: 500px;
+    height: auto;
+    min-height: 680px;
+    margin: 20px auto;
     border: 0px solid #888888;
     border-radius: 10px;
+    padding-bottom: 20px;
+    box-sizing: border-box;
 }
 .card-img{
-    width: 400px;
-    height: 360px;
+    width: 90%;
+    max-width: 450px;
+    height: auto;
+    aspect-ratio: 1/1;
     display: block;
     margin: auto;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px 0;
+    object-fit: contain;
 }
 .type{
-    width: 400px;
-    height: 120px;
+    width: 95%;
+    height: auto;
+    min-height: 120px;
     background-color:#b10505 ;
-    margin:auto;
-    margin-top: 10px;
+    margin: 10px auto;
     border: 0px solid #888888;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    padding-top: 10px;
+    box-sizing: border-box;
 }
-.left-card{
-    width: 160px;
-    height: 120px;
-    background-color:#b10505 ;
-    margin:auto;
-    margin-top: 20px;
-    float: left;
-    margin-left:10px;
-    border: 0px solid #888888;
-    border-radius: 10px;
+.stats-container {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    margin: 20px auto 0;
+    gap: 10px;
 }
-.right-card{
-    width: 160px;
-    height: 120px;
+.left-card, .right-card{
+    width: 48%;
     background-color:#b10505 ;
-    margin:auto;
-    margin-top: 20px;
-    float: right;
-    margin-right: 10px;
     border: 0px solid #888888;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
 }
 .text-card{
     color:#FFFFFF;
-    font-size: 24px;
     text-align: center;
-    margin-bottom:20px;
-    padding-top: 10px;
-    
+    margin: 0;
+    font-size: 24px;
+    margin-bottom: 10px;
 }
+
 .text-card-data{
     background-color:#D9D9D9;
     color:#000000;
-    font-size: 24px;
+    font-size: 20px;
     text-align: center;
-    padding-bottom: 20px;
-    border: 0px solid #888888;
+    padding: 20px 0;
     border-radius: 10px;
-    
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 400px) {
+    .main-card {
+        min-height: auto;
+    }
+    .left-card, .right-card {
+        height: 100px;
+    }
+    .text-card {
+        font-size: 18px;
+        padding-top: 5px;
+        margin-bottom: 5px;
+    }
+    .text-card-data {
+        font-size: 16px;
+        padding: 25px 0;
+    }
 }

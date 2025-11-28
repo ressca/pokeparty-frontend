@@ -19,6 +19,7 @@ export default function Header() {
   const [isSettingsOpen, setSettingsOpen] = useState(false);
   const [username, setUsername] = useState("");
   const { token } = useAuth();
+  const [isMenuOpen, setMenuOpen] = useState(false);
 
   const [userPokemonAvatar, setUserPokemonAvatar] = useState("");
   const [avatarLoa, setAvatarLoa] = useState("");
@@ -40,12 +41,14 @@ export default function Header() {
       <div className="headerContainer">
         <header>
           <h1 className="logoh1" onClick={() => navigate("/")} style={{ cursor: "pointer" }}>PokeParty</h1>
-          <div className="secondPart">
-            <Search />
-            <a href="#" className="yourCollection" onClick={(e) => { e.preventDefault(); navigate("/leaderboard"); }}>Leaderboard</a>
-            <a href="#" className="yourCollection" onClick={(e) => { e.preventDefault(); navigate("/favorites"); }}>Favorites</a>
-            
+          
+          <div className={`navLinks ${isMenuOpen ? 'open' : ''}`}>
+            <Search onSearch={() => setMenuOpen(false)} />
+            <a href="#" className="yourCollection" onClick={(e) => { e.preventDefault(); navigate("/leaderboard"); setMenuOpen(false); }}>Leaderboard</a>
+            <a href="#" className="yourCollection" onClick={(e) => { e.preventDefault(); navigate("/favorites"); setMenuOpen(false); }}>Favorites</a>
+          </div>
 
+          <div className="headerActions">
             <div className="userAvatar" onClick={() => {
               if(token) {
                   setSettingsOpen(true);
@@ -55,7 +58,13 @@ export default function Header() {
                 }}>
               {userPokemonAvatar ? (
               <PokemonAvatar id={userPokemonAvatar} size={30} showName={false}/>) : (<img src={userAvatar} alt="User Avatar" className="avatarImage"/>)}
-          </div>
+            </div>
+            
+            <button className={`hamburger ${isMenuOpen ? 'active' : ''}`} onClick={() => setMenuOpen(!isMenuOpen)}>
+              <span className="bar"></span>
+              <span className="bar"></span>
+              <span className="bar"></span>
+            </button>
           </div>
         </header>
       </div>

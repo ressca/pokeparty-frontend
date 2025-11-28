@@ -41,7 +41,7 @@ export default function PokemonsFights() {
 
     return (
         <section className="randomPokemonsSection">
-            <h1 className='YourChoice'>Vote, which one you like more?</h1>
+            <h1 className='YourChoice'>Vote, which one do you like more?</h1>
             <div className="positioningPokemons">
                 {pokemon1_id && <PokemonsFightCards pokemon_id={pokemon1_id} onClick={() => handleVote(pokemon1_id)} />}
                 {pokemon2_id && <PokemonsFightCards pokemon_id={pokemon2_id} onClick={() => handleVote(pokemon2_id)} />}

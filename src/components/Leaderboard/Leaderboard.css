@@ -24,7 +24,8 @@
 
 .leaderboardTable {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate; /* Changed from collapse to fix hover transform issues */
+    border-spacing: 0;
     text-align: left;
 }
 
@@ -43,6 +44,7 @@
 
 .leaderboardTable tbody tr {
     cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 .leaderboardTable td {
@@ -63,11 +65,10 @@
 }
 
 /* Hover effect */
-.leaderboardTable tbody tr:hover {
+.leaderboardTable tbody tr:hover,
+.leaderboardTable tbody tr:active {
     background-color: #e8f4fd;
     transform: scale(1.005);
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     z-index: 1;
     position: relative;
 }
@@ -80,7 +81,8 @@
     transition: transform 0.3s ease;
 }
 
-.leaderboardTable tbody tr:hover .leaderboardPokemonImg {
+.leaderboardTable tbody tr:hover .leaderboardPokemonImg,
+.leaderboardTable tbody tr:active .leaderboardPokemonImg {
     transform: scale(1.2);
 }
 
@@ -116,4 +118,128 @@
     color: white;
     border: none;
     border-radius: 15px;
+}
+
+@media (max-width: 900px) {
+    .leaderboardContainer {
+        padding: 20px 20px;
+    }
+
+    .leaderboardTitle {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    .leaderboardTableContainer {
+        background: transparent;
+        box-shadow: none;
+        border: none;
+    }
+
+    .leaderboardTable thead {
+        display: none;
+    }
+
+    .leaderboardTable, .leaderboardTable tbody, .leaderboardTable tr, .leaderboardTable td {
+        display: block;
+        width: auto;
+    }
+
+    .leaderboardTable tbody tr {
+        display: grid;
+        grid-template-rows: auto auto auto;
+        gap: 5px 15px;
+        background: #fff;
+        margin-bottom: 15px;
+        border-radius: 12px;
+        padding: 15px;
+        position: relative;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .is-leaderboard .leaderboardTable tbody tr {
+        grid-template-columns: 90px 1fr auto;
+    }
+
+    .is-favorites .leaderboardTable tbody tr {
+        grid-template-columns: 90px 1fr;
+    }
+
+    .leaderboardTable td {
+        padding: 0;
+        border: none;
+    }
+
+    /* Image */
+    .imageCell {
+        grid-column: 1;
+        grid-row: 1 / -1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .leaderboardPokemonImg {
+        width: 80px;
+        height: 80px;
+    }
+
+    /* Name */
+    .nameCell {
+        grid-column: 2;
+        grid-row: 1;
+        font-size: 1.2rem;
+        font-weight: bold;
+        align-self: end;
+        color: #333;
+    }
+
+    /* Types */
+    .typesCell {
+        grid-column: 2;
+        grid-row: 2;
+        font-size: 0.9rem;
+        color: #666;
+    }
+
+    /* Elo */
+    .eloCell {
+        grid-column: 2;
+        grid-row: 3;
+        font-weight: bold;
+        color: #2c3e50;
+    }
+    .eloCell::before {
+        content: "Elo: ";
+        font-weight: normal;
+        color: #7f8c8d;
+    }
+
+    /* Rank */
+    .rankCell {
+        grid-column: 3;
+        grid-row: 1 / -1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding-right: 10px;
+    }
+
+    /* ID Handling */
+    .is-leaderboard .idCell {
+        display: none;
+    }
+
+    .is-favorites .idCell {
+        grid-column: 2;
+        grid-row: 3;
+        color: #888;
+        font-size: 0.9rem;
+    }
+    .is-favorites .idCell::before {
+        content: "ID: ";
+    }
 }
