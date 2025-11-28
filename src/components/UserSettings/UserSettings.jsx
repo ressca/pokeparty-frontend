@@ -3,13 +3,14 @@ import { fetchCurrentUser } from "../login/apiUser";
 import PokemonAvatar from "./PokemonAvatar";
 import UserUpdate from "./UserUpdate";
 import './UserSettings.css';
+import { useAuth } from "../../context/AuthContext";
 
 export default function UserSettings({ onClose }) {
   const [userData, setUserData] = useState("");
   const [editing, setEditing] = useState(false);
+  const { token, logout } = useAuth();
 
   const loadUser = () => {
-    const token = localStorage.getItem("access_token");
     if (token) {
       fetchCurrentUser(token)
         .then(data => setUserData(data))
@@ -19,13 +20,12 @@ export default function UserSettings({ onClose }) {
 
   useEffect(() => {
     loadUser();
-  }, []);
+  }, [token]);
 
   const handleLogout = () => {
-    localStorage.removeItem("access_token");
+    logout();
     setUserData("");
     onClose();
-    window.location.reload();
   };
 
   return (

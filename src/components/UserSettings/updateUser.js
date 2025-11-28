@@ -9,7 +9,9 @@ export async function updateUser(token, updatedData) {
   });
 
   if (!response.ok) {
-    throw new Error("Błąd aktualizacji użytkownika");
+    const errorData = await response.json().catch(() => ({}));
+    console.error("Update user error details:", errorData);
+    throw new Error(`Błąd aktualizacji użytkownika: ${response.status} ${JSON.stringify(errorData)}`);
   }
 
   return await response.json();
