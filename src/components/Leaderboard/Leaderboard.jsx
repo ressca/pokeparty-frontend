@@ -82,7 +82,7 @@ export default function Leaderboard({ title, tableColumns, startRankingData, isL
     }
 
     return (
-        <div className="leaderboardContainer">
+        <div className={`leaderboardContainer ${isLeaderboardPage ? 'is-leaderboard' : 'is-favorites'}`}>
             <h1 className="leaderboardTitle">{title}</h1>
             <div className="leaderboardTableContainer">
                 <table className="leaderboardTable">
